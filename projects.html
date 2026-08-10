@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Ryan Jan</title>
+<meta name="description" content="Selected controls and embedded systems projects by Ryan Jan, including a self-balancing robot with PID/LQR control.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="mobile-topbar">
+  <div class="mobile-identity">
+    <div class="sidebar-avatar media-slot ratio-1x1 round" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"></path></svg>
+    </div>
+    <span class="mobile-name">Ryan Jan</span>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-panel">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-panel" id="mobile-panel">
+  <nav class="sidebar-nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="about.html">About</a>
+  </nav>
+  <div class="sidebar-cta">
+    <span class="sidebar-status"><span class="status-dot"></span>Open to internships</span>
+    <a class="btn btn-primary btn-block" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <div class="sidebar-contact">
+      <a href="mailto:ryanjansoftware@gmail.com">ryanjansoftware@gmail.com</a>
+    </div>
+    <div class="sidebar-social">
+      <a href="https://github.com/rjan939" target="_blank" rel="noopener" aria-label="GitHub">&lt;/&gt;</a>
+      <a href="https://linkedin.com/in/ryan-jan" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-identity">
+      <div class="sidebar-avatar media-slot ratio-1x1 round" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"></path></svg>
+      </div>
+      <div>
+        <div class="sidebar-name">Ryan Jan<span class="logo-dot">.</span></div>
+        <p class="sidebar-tagline">Electrical Engineering<br>Controls &middot; Cal Poly SLO</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="sidebar-cta">
+      <span class="sidebar-status"><span class="status-dot"></span>Open to internships</span>
+      <a class="btn btn-primary btn-block" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <div class="sidebar-contact">
+        <a href="mailto:ryanjansoftware@gmail.com">ryanjansoftware@gmail.com</a>
+      </div>
+      <div class="sidebar-social">
+        <a href="https://github.com/rjan939" target="_blank" rel="noopener" aria-label="GitHub">&lt;/&gt;</a>
+        <a href="https://linkedin.com/in/ryan-jan" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="page">
+
+      <header class="page-header reveal">
+        <p class="eyebrow">Projects</p>
+        <h1>Selected Work</h1>
+        <p class="page-lede">Controls, embedded systems, and a few detours &mdash; like a compiler.</p>
+      </header>
+
+      <section class="page-block" id="flagship">
+        <p class="eyebrow">Featured Project</p>
+        <h2>Two-Wheel Self-Balancing Robot</h2>
+
+        <div class="flagship-media-row reveal">
+          <div class="media-slot ratio-16x9">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="14" height="12" rx="2"></rect><path d="M21 9l-4 3 4 3V9z"></path></svg>
+            <span>Add: video of the robot balancing</span>
+          </div>
+
+          <div class="widget-card">
+            <div class="widget-header">
+              <span class="widget-title">Step Response</span>
+              <span class="widget-tag">closed-loop sim</span>
+            </div>
+            <canvas id="control-canvas" width="600" height="320" role="img" aria-label="Live plot of a controller response tracking a draggable setpoint"></canvas>
+            <div class="widget-controls">
+              <label for="setpoint-slider">Setpoint</label>
+              <input type="range" id="setpoint-slider" min="-100" max="100" value="40" step="1">
+            </div>
+            <div class="widget-legend">
+              <span><i class="swatch swatch-setpoint"></i>Setpoint</span>
+              <span><i class="swatch swatch-response"></i>Response</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="flagship-lines reveal">
+          <li>Modeled as an inverted pendulum on a custom 3D-printed chassis</li>
+          <li>PID and a hand-derived 4-state LQR compared on identical hardware</li>
+          <li>Full-state feedback gains from solving the algebraic Riccati equation in Java</li>
+          <li>IMU + encoder sensor fusion, evaluated live over FTC Dashboard telemetry</li>
+        </ul>
+        <div class="tags">
+          <span>Java</span><span>FTC SDK</span><span>Onshape</span><span>Control Theory</span><span>LQR</span>
+        </div>
+        <a class="text-link" href="https://github.com/rjan939" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      </section>
+
+      <section class="page-block">
+        <div class="project-grid">
+          <article class="project-media-card reveal">
+            <div class="media-slot ratio-4x3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-4-4 3-3-2-6 5"></path></svg>
+              <span>Add: photo</span>
+            </div>
+            <div class="project-media-body">
+              <h3>Small C Compiler</h3>
+              <p>2,800+ lines: lexer, parser, AST, and direct x86-64 codegen. 362 assertions across 15 test programs.</p>
+              <div class="tags"><span>C</span><span>x86-64</span></div>
+              <a class="text-link" href="https://github.com/rjan939" target="_blank" rel="noopener">GitHub &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project-media-card reveal">
+            <div class="media-slot ratio-4x3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-4-4 3-3-2-6 5"></path></svg>
+              <span>Add: photo</span>
+            </div>
+            <div class="project-media-body">
+              <h3>Fused PID + Feedforward Drivetrain</h3>
+              <p>Kalman filter fusing PID on motor velocity with feedforward on voltage for the FTC drivetrain.</p>
+              <div class="tags"><span>Java</span><span>Kalman Filter</span></div>
+            </div>
+          </article>
+
+          <article class="project-media-card reveal">
+            <div class="media-slot ratio-4x3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-4-4 3-3-2-6 5"></path></svg>
+              <span>Add: photo</span>
+            </div>
+            <div class="project-media-body">
+              <h3>IR-Controlled Temp Regulator</h3>
+              <p>Steinhart&ndash;Hart thermistor model actuates a fan above a 71&deg;F setpoint via IR remote.</p>
+              <div class="tags"><span>ATmega2560</span><span>Arduino</span></div>
+              <a class="text-link" href="https://github.com/rjan939" target="_blank" rel="noopener">GitHub &rarr;</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="earlier-builds">
+          <h3 class="earlier-title">Also built</h3>
+          <ul class="earlier-list">
+            <li><strong>4-Bit Counter Alarm</strong> &mdash; seven-segment counter, direct GPIO segment control</li>
+            <li><strong>Light-Scanning Servo System</strong> &mdash; photoconductive-cell sweep to find brightest direction</li>
+            <li><strong>Bidirectional DC Motor Controller</strong> &mdash; L293D H-bridge, joystick input, dead zone</li>
+            <li><strong>Two-Wheel Line-Following Robot</strong> &mdash; IR sensors, PID-controlled steering</li>
+            <li><strong>RC Filter Analysis</strong> &mdash; low-pass design verified in LTspice and on the bench</li>
+            <li><strong>Electronic Theremin</strong> &mdash; ultrasonic distance mapped to four tones</li>
+            <li><strong>Digital Thermometer with LCD</strong> &mdash; DHT11 sensor, real-time LCD readout</li>
+            <li><strong>Concert Audio Filter</strong> &mdash; MATLAB low-pass filter for a live recording</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>&copy; 2026 Ryan Jan</span>
+        <span>Built from scratch, no framework</span>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<script src="js/control-demo.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

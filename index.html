@@ -15,306 +15,121 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="logo" href="#top">RJ<span class="logo-dot">.</span></a>
+<!-- mobile top bar -->
+<header class="mobile-topbar">
+  <div class="mobile-identity">
+    <div class="sidebar-avatar media-slot ratio-1x1 round" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"></path></svg>
+    </div>
+    <span class="mobile-name">Ryan Jan</span>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-panel">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-panel" id="mobile-panel">
+  <nav class="sidebar-nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+  </nav>
+  <div class="sidebar-cta">
+    <span class="sidebar-status"><span class="status-dot"></span>Open to internships</span>
+    <a class="btn btn-primary btn-block" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <div class="sidebar-contact">
+      <a href="mailto:ryanjansoftware@gmail.com">ryanjansoftware@gmail.com</a>
+    </div>
+    <div class="sidebar-social">
+      <a href="https://github.com/rjan939" target="_blank" rel="noopener" aria-label="GitHub">&lt;/&gt;</a>
+      <a href="https://linkedin.com/in/ryan-jan" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+    </div>
+  </div>
+</div>
 
-    <nav class="site-nav" id="site-nav">
-      <a href="#flagship">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-identity">
+      <div class="sidebar-avatar media-slot ratio-1x1 round" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"></path></svg>
+      </div>
+      <div>
+        <div class="sidebar-name">Ryan Jan<span class="logo-dot">.</span></div>
+        <p class="sidebar-tagline">Electrical Engineering<br>Controls &middot; Cal Poly SLO</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
     </nav>
 
-    <div class="header-actions">
-      <a class="btn btn-ghost" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main id="main">
-
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Electrical Engineering &middot; Controls</p>
-        <h1>Ryan Jan</h1>
-        <p class="hero-sub">
-          Sophomore EE student at Cal Poly SLO, minoring in Mathematics. I build closed-loop
-          control systems &mdash; from a self-balancing robot that solves its own Riccati equation,
-          to the compiler that could have built the tools I used to program it.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-          <a class="btn btn-ghost" href="#flagship">View Projects</a>
-        </div>
-        <div class="hero-links">
-          <a href="https://github.com/rjan939" target="_blank" rel="noopener">github.com/rjan939</a>
-          <span class="dot">&middot;</span>
-          <a href="https://linkedin.com/in/ryan-jan" target="_blank" rel="noopener">linkedin.com/in/ryan-jan</a>
-        </div>
-      </div>
-
-      <div class="hero-widget" aria-hidden="false">
-        <div class="widget-card">
-          <div class="widget-header">
-            <span class="widget-title">Step Response</span>
-            <span class="widget-tag">closed-loop sim</span>
-          </div>
-          <canvas id="control-canvas" width="600" height="320" role="img" aria-label="Live plot of a controller response tracking a draggable setpoint"></canvas>
-          <div class="widget-controls">
-            <label for="setpoint-slider">Setpoint</label>
-            <input type="range" id="setpoint-slider" min="-100" max="100" value="40" step="1">
-          </div>
-          <div class="widget-legend">
-            <span><i class="swatch swatch-setpoint"></i>Setpoint</span>
-            <span><i class="swatch swatch-response"></i>Response</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FLAGSHIP PROJECT -->
-  <section class="flagship" id="flagship">
-    <div class="wrap">
-      <p class="eyebrow">Featured Project</p>
-      <h2>Two-Wheel Self-Balancing Robot</h2>
-
-      <div class="flagship-grid">
-        <div class="flagship-text">
-          <p>
-            Individually designed and fabricated a balancing prototype around a REV Control Hub,
-            a BHI260AP inertial measurement unit, motor encoders, and a custom 3D-printed chassis.
-            The robot is modeled as an inverted pendulum &mdash; an inherently unstable system that
-            has to be actively controlled just to stay upright.
-          </p>
-          <p>
-            I implemented and compared two control strategies on the same hardware: classical
-            proportional&ndash;integral&ndash;derivative (PID) control, and a four-state linear&ndash;quadratic
-            regulator (LQR) using pitch angle, pitch rate, wheel position, and wheel velocity as
-            state feedback. The LQR gains came from solving the algebraic Riccati equation directly
-            in Java. Both controllers were evaluated head-to-head using FTC Dashboard telemetry.
-          </p>
-          <ul class="flagship-facts">
-            <li>Full-state feedback via a hand-solved algebraic Riccati equation</li>
-            <li>PID vs. 4-state LQR compared on identical hardware</li>
-            <li>Custom 3D-printed chassis, IMU + encoder sensor fusion</li>
-          </ul>
-          <div class="tags">
-            <span>Java</span><span>FTC SDK</span><span>Onshape</span><span>Control Theory</span><span>LQR</span>
-          </div>
-          <a class="text-link" href="https://github.com/rjan939" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-        </div>
-
-        <div class="flagship-diagram" role="img" aria-label="Block diagram of a closed-loop control system: setpoint into a summing junction, into a controller, into the plant, producing an output, fed back through a sensor to the summing junction.">
-          <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" class="loop-svg">
-            <defs>
-              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 z" class="arrow-head"></path>
-              </marker>
-            </defs>
-
-            <!-- setpoint -->
-            <text x="10" y="86" class="diagram-label">Setpoint</text>
-            <line x1="10" y1="100" x2="58" y2="100" class="loop-line" marker-end="url(#arrow)"></line>
-
-            <!-- sum junction -->
-            <circle cx="72" cy="100" r="14" class="sum-node"></circle>
-            <text x="72" y="105" class="sum-symbol">&Sigma;</text>
-            <line x1="86" y1="100" x2="130" y2="100" class="loop-line" marker-end="url(#arrow)"></line>
-
-            <!-- controller box -->
-            <rect x="132" y="76" width="90" height="48" rx="6" class="loop-box"></rect>
-            <text x="177" y="105" class="loop-box-label" text-anchor="middle">Controller</text>
-            <line x1="222" y1="100" x2="260" y2="100" class="loop-line" marker-end="url(#arrow)"></line>
-
-            <!-- plant box -->
-            <rect x="262" y="76" width="90" height="48" rx="6" class="loop-box"></rect>
-            <text x="307" y="105" class="loop-box-label" text-anchor="middle">Plant</text>
-            <line x1="352" y1="100" x2="400" y2="100" class="loop-line" marker-end="url(#arrow)"></line>
-
-            <!-- output -->
-            <text x="368" y="86" class="diagram-label">Output</text>
-
-            <!-- feedback path -->
-            <line x1="400" y1="100" x2="400" y2="190" class="loop-line"></line>
-            <line x1="400" y1="190" x2="72" y2="190" class="loop-line"></line>
-            <line x1="72" y1="190" x2="72" y2="116" class="loop-line" marker-end="url(#arrow)"></line>
-            <rect x="150" y="172" width="104" height="36" rx="6" class="loop-box loop-box-muted"></rect>
-            <text x="202" y="195" class="loop-box-label" text-anchor="middle">Sensor (IMU)</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects" id="projects">
-    <div class="wrap">
-      <p class="eyebrow">Projects</p>
-      <h2>Selected Work</h2>
-
-      <div class="project-grid">
-        <article class="project-card">
-          <h3>Small C Compiler</h3>
-          <p>
-            A 2,800+ line C compiler covering lexical analysis, recursive-descent parsing, AST
-            construction, type and scope analysis, and direct x86-64 assembly generation &mdash;
-            supporting functions, recursion, control flow, pointers, arrays, strings, aggregate
-            types, enums, typedefs, and casts. Validated with 362 assertions across 15 automated
-            test programs using Make and GCC.
-          </p>
-          <div class="tags"><span>C</span><span>x86-64 Assembly</span><span>Git</span></div>
-          <a class="text-link" href="https://github.com/rjan939" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-        </article>
-
-        <article class="project-card">
-          <h3>Fused PID + Feedforward Drivetrain Control</h3>
-          <p>
-            Developed a Kalman filter for the FTC Robotics drivetrain that fuses a PID controller
-            on measured motor velocity with a feedforward controller on applied voltage, producing
-            a more accurate, less noise-sensitive velocity estimate for closed-loop drive control.
-          </p>
-          <div class="tags"><span>Java</span><span>Kalman Filter</span><span>Motor Control</span></div>
-        </article>
-
-        <article class="project-card">
-          <h3>IR-Controlled Temperature Regulator</h3>
-          <p>
-            A fan-control system built around an NTC thermistor voltage divider, PN2222 transistor
-            driver, flyback diode, and infrared remote. Converted 10-bit ADC readings to temperature
-            using a Steinhart&ndash;Hart model and actuated the fan above a 71&deg;F setpoint; verified
-            in Tinkercad simulation and on physical hardware.
-          </p>
-          <div class="tags"><span>ATmega2560</span><span>Arduino</span><span>Tinkercad</span></div>
-          <a class="text-link" href="https://github.com/rjan939" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-        </article>
-      </div>
-
-      <div class="earlier-builds">
-        <h3 class="earlier-title">Also built</h3>
-        <ul class="earlier-list">
-          <li><strong>4-Bit Counter Alarm</strong> &mdash; seven-segment counter with direct GPIO segment control, no shift register</li>
-          <li><strong>Light-Scanning Servo System</strong> &mdash; photoconductive-cell sweep to find the brightest direction</li>
-          <li><strong>Bidirectional DC Motor Controller</strong> &mdash; L293D H-bridge driven by analog joystick with a dead zone</li>
-          <li><strong>Two-Wheel Line-Following Robot</strong> &mdash; IR sensors, differential drive, PID-controlled steering</li>
-          <li><strong>RC Filter Analysis</strong> &mdash; low-pass filter design verified in LTspice and on the bench</li>
-          <li><strong>Electronic Theremin</strong> &mdash; ultrasonic distance sensing mapped to four tones</li>
-          <li><strong>Digital Thermometer with LCD</strong> &mdash; DHT11 sensor with real-time character LCD readout</li>
-          <li><strong>Concert Audio Filter</strong> &mdash; MATLAB Signal Analyzer used to design a low-pass noise filter for a live recording</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="experience" id="experience">
-    <div class="wrap">
-      <p class="eyebrow">Experience</p>
-      <h2>Robotics Leadership</h2>
-
-      <div class="exp-entry">
-        <div class="exp-meta">
-          <span class="exp-dates">Aug 2021 &ndash; May 2025</span>
-          <span class="exp-place">St. Louis, MO</span>
-        </div>
-        <div class="exp-body">
-          <h3>Programming Lead &amp; CAD/Design Lead</h3>
-          <p class="exp-org">FIRST Tech Challenge Robotics &mdash; Ramifications #5155</p>
-          <ul>
-            <li>Led programming and CAD for a 10-member team, directly mentoring 3 students in Java, control systems, and Onshape</li>
-            <li>Authored 3,000+ lines of custom Java across 50+ source files, including a 25-class command framework and four autonomous routines</li>
-            <li>Implemented field-oriented mecanum drive and closed-loop X/Y position and heading control with goBILDA Pinpoint localization</li>
-            <li>Directed Onshape design and fabrication through CNC machining, 3D printing, and laser cutting; the team's control software received FIRST Control Awards in two consecutive seasons</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="skills" id="skills">
-    <div class="wrap">
-      <p class="eyebrow">Skills</p>
-      <h2>Toolbox</h2>
-
-      <div class="skills-grid">
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <div class="tags"><span>Java</span><span>C</span><span>C++</span><span>Python</span><span>MATLAB</span><span>Bash</span><span>x86-64 Assembly</span></div>
-        </div>
-        <div class="skill-group">
-          <h3>Embedded &amp; Controls</h3>
-          <div class="tags"><span>FTC SDK</span><span>Arduino</span><span>PID Control</span><span>LQR Control</span><span>Motor Control</span><span>Sensor Integration</span></div>
-        </div>
-        <div class="skill-group">
-          <h3>Development &amp; Design</h3>
-          <div class="tags"><span>Git</span><span>Linux</span><span>Android Studio</span><span>JavaFX</span><span>Onshape</span><span>LTspice</span></div>
-        </div>
-        <div class="skill-group">
-          <h3>Lab &amp; Fabrication</h3>
-          <div class="tags"><span>Oscilloscope</span><span>Multimeter</span><span>Function Generator</span><span>Power Supply</span><span>Soldering</span><span>CNC Machining</span><span>3D Printing</span><span>Laser Cutting</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div>
-        <p class="eyebrow">About</p>
-        <h2>Why controls</h2>
-      </div>
-      <div class="about-copy">
-        <p>
-          I like optimizing systems &mdash; control loops, code, competition robots &mdash; but the
-          interesting problems are usually the messy ones: the ones that don't converge on the first
-          try, where the model doesn't quite match the hardware and you have to figure out why.
-          That's basically what pulled me toward controls specifically, and why I'm minoring in math
-          alongside my EE degree &mdash; state-space models and Riccati equations are more useful when
-          you actually understand where they come from.
-        </p>
-        <p>
-          Outside of coursework, most of that shows up through FIRST Tech Challenge robotics, where
-          I spent four years writing the autonomous code and mentoring newer teammates through the
-          same control-systems concepts I was still learning myself.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="wrap contact-inner">
-      <p class="eyebrow">Contact</p>
-      <h2>Let's talk</h2>
-      <p class="contact-sub">Looking for controls / embedded systems internships. Reach out any of these ways:</p>
-      <div class="contact-links">
+    <div class="sidebar-cta">
+      <span class="sidebar-status"><span class="status-dot"></span>Open to internships</span>
+      <a class="btn btn-primary btn-block" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <div class="sidebar-contact">
         <a href="mailto:ryanjansoftware@gmail.com">ryanjansoftware@gmail.com</a>
-        <a href="https://github.com/rjan939" target="_blank" rel="noopener">github.com/rjan939</a>
-        <a href="https://linkedin.com/in/ryan-jan" target="_blank" rel="noopener">linkedin.com/in/ryan-jan</a>
       </div>
-      <a class="btn btn-primary" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+      <div class="sidebar-social">
+        <a href="https://github.com/rjan939" target="_blank" rel="noopener" aria-label="GitHub">&lt;/&gt;</a>
+        <a href="https://linkedin.com/in/ryan-jan" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      </div>
     </div>
-  </section>
+  </aside>
 
-</main>
+  <main class="main" id="main">
+    <div class="page">
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <span>&copy; 2026 Ryan Jan</span>
-    <span>Built from scratch, no framework</span>
-  </div>
-</footer>
+      <section class="home-hero reveal">
+        <div>
+          <p class="eyebrow">Electrical Engineering &middot; Controls</p>
+          <h1>Ryan Jan</h1>
+          <p class="home-hero-sub">
+            Sophomore EE student at Cal Poly SLO, minoring in Math. I build closed-loop
+            control systems &mdash; PID/LQR controllers, embedded hardware, and the occasional compiler.
+          </p>
+          <div class="home-hero-actions">
+            <a class="btn btn-primary" href="projects.html">View Projects</a>
+            <a class="btn btn-ghost" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+          </div>
+        </div>
+        <div class="home-photo-slot">
+          <div class="media-slot ratio-4x3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-4-4 3-3-2-6 5"></path></svg>
+            <span>Add: photo of Ryan</span>
+          </div>
+        </div>
+      </section>
 
-<script src="js/control-demo.js"></script>
+      <div class="stat-chips reveal">
+        <div class="stat-chip"><strong>Hand-solved</strong>Algebraic Riccati equation for full-state feedback</div>
+        <div class="stat-chip"><strong>PID vs. LQR</strong>Compared head-to-head on the same hardware</div>
+        <div class="stat-chip"><strong>2&times; Control Award</strong>FIRST Tech Challenge, back to back seasons</div>
+      </div>
+
+      <section class="teaser-card reveal">
+        <div class="teaser-media">
+          <div class="media-slot ratio-4x3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="14" height="12" rx="2"></rect><path d="M21 9l-4 3 4 3V9z"></path></svg>
+            <span>Add: video of the robot balancing</span>
+          </div>
+        </div>
+        <div class="teaser-body">
+          <p class="eyebrow">Featured Project</p>
+          <h3>Two-Wheel Self-Balancing Robot</h3>
+          <p>Modeled as an inverted pendulum, controlled with PID and a hand-derived 4-state LQR.</p>
+          <a class="text-link" href="projects.html#flagship">See the full breakdown &rarr;</a>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>&copy; 2026 Ryan Jan</span>
+        <span>Built from scratch, no framework</span>
+      </footer>
+    </div>
+  </main>
+</div>
+
 <script src="js/main.js"></script>
 </body>
 </html>
