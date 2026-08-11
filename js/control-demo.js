@@ -11,10 +11,11 @@
   var WINDOW_SECONDS = 6;
 
   // second-order plant driven by a PD-style controller, tuned for a
-  // visible, honest slightly-underdamped step response (small overshoot,
-  // settles within the plot window) rather than a critically-damped snap.
+  // visibly underdamped response -- a couple of real decaying bounces
+  // rather than a single clipped overshoot -- plus a hint of process
+  // noise so it reads as a live signal, not a textbook curve.
   var Kp = 9;
-  var Kd = 3.2;
+  var Kd = 1.9;
 
   var pos = 0;
   var vel = 0;
@@ -63,6 +64,7 @@
     var h = dt / substeps;
     for (var i = 0; i < substeps; i++) {
       var accel = Kp * (setpoint - pos) - Kd * vel;
+      accel += (Math.random() * 2 - 1) * 0.12; // tiny process noise -- a live signal, not a perfect curve
       vel += accel * h;
       pos += vel * h;
     }
@@ -75,11 +77,12 @@
   }
 
   function valueToY(v) {
-    // value range roughly -1.3..1.3 mapped to plot height, center line at mid
+    // value range -1.6..1.6 mapped to plot height, center line at mid --
+    // wide enough to hold the worst-case overshoot from a full-range jump
     var padding = 28;
     var usable = LOGICAL_H - padding * 2;
-    var clamped = Math.max(-1.3, Math.min(1.3, v));
-    return padding + usable * (1 - (clamped + 1.3) / 2.6);
+    var clamped = Math.max(-1.6, Math.min(1.6, v));
+    return padding + usable * (1 - (clamped + 1.6) / 3.2);
   }
 
   function timeToX(t) {
