@@ -23,9 +23,32 @@
   var elapsed = 0;
   var lastFrame = null;
 
+  // ambient disturbance: even when nobody is touching the slider, the
+  // controller occasionally gets a small nudge and visibly corrects for
+  // it on its own -- real disturbance rejection, not just decoration.
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var lastSliderValue = null;
+  var nextDisturbanceAt = 4 + Math.random() * 2;
+
+  function scheduleNextDisturbance() {
+    nextDisturbanceAt = elapsed + 4.5 + Math.random() * 2.5;
+  }
+
   function readSetpoint() {
     var v = parseFloat(slider.value); // -100..100
+    if (lastSliderValue !== null && v !== lastSliderValue) {
+      scheduleNextDisturbance(); // user is driving it manually -- don't fight them
+    }
+    lastSliderValue = v;
     setpoint = v / 100; // -1..1
+  }
+
+  function maybeDisturb() {
+    if (reduceMotion) return;
+    if (elapsed >= nextDisturbanceAt) {
+      vel += (Math.random() * 2 - 1) * 0.75;
+      scheduleNextDisturbance();
+    }
   }
 
   function resize() {
@@ -133,6 +156,7 @@
     elapsed += dt;
 
     readSetpoint();
+    maybeDisturb();
     step(dt);
     pushSample();
     draw();

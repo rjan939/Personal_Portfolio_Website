@@ -18,8 +18,11 @@
 <!-- mobile top bar -->
 <header class="mobile-topbar">
   <div class="mobile-identity">
-    <div class="sidebar-avatar media-frame ratio-1x1 round" aria-hidden="true">
-      <img src="assets/img/ryan-headshot.jpg" alt="">
+    <div class="avatar-wrap">
+      <div class="sidebar-avatar media-frame ratio-1x1 round" aria-hidden="true">
+        <img src="assets/img/ryan-headshot.jpg" alt="">
+      </div>
+      <svg class="avatar-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47"></circle></svg>
     </div>
     <span class="mobile-name">Ryan Jan</span>
   </div>
@@ -49,8 +52,11 @@
 <div class="shell">
   <aside class="sidebar">
     <div class="sidebar-identity">
-      <div class="sidebar-avatar media-frame ratio-1x1 round" aria-hidden="true">
-        <img src="assets/img/ryan-headshot.jpg" alt="">
+      <div class="avatar-wrap">
+        <div class="sidebar-avatar media-frame ratio-1x1 round" aria-hidden="true">
+          <img src="assets/img/ryan-headshot.jpg" alt="">
+        </div>
+        <svg class="avatar-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47"></circle></svg>
       </div>
       <div>
         <div class="sidebar-name">Ryan Jan<span class="logo-dot">.</span></div>
@@ -80,30 +86,40 @@
   <main class="main" id="main">
     <div class="page">
 
-      <section class="home-hero reveal">
+      <section class="home-hero">
+        <div class="hero-spotlight entrance entrance-1" aria-hidden="true"></div>
+        <span class="hero-glyph" style="top:6%; left:-2%; font-size:72px; animation-delay:0s;" aria-hidden="true">&Sigma;</span>
+        <span class="hero-glyph" style="top:62%; left:10%; font-size:52px; animation-delay:1.6s;" aria-hidden="true">&int;</span>
+        <span class="hero-glyph" style="top:14%; right:0%; font-size:64px; animation-delay:3.1s;" aria-hidden="true">&Omega;</span>
+        <span class="hero-glyph" style="bottom:8%; right:14%; font-size:46px; animation-delay:4.6s;" aria-hidden="true">&lambda;</span>
+        <span class="hero-glyph" style="bottom:26%; left:2%; font-size:40px; animation-delay:2.2s;" aria-hidden="true">s</span>
         <div>
-          <p class="eyebrow">Electrical Engineering &middot; Controls</p>
-          <h1>Ryan Jan</h1>
-          <p class="home-hero-sub">
+          <p class="eyebrow entrance entrance-2">Electrical Engineering &middot; Controls</p>
+          <h1 class="entrance entrance-3">Ryan Jan</h1>
+          <p class="home-hero-sub entrance entrance-4">
             Sophomore EE student at Cal Poly SLO, minoring in Math. I build closed-loop
             control systems &mdash; PID/LQR controllers, embedded hardware, and the occasional compiler.
           </p>
-          <div class="home-hero-actions">
+          <div class="home-hero-actions entrance entrance-5">
             <a class="btn btn-primary" href="projects.html">View Projects</a>
             <a class="btn btn-ghost" href="assets/resume/Ryan_Jan_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
           </div>
         </div>
-        <div class="home-photo-slot">
-          <div class="media-frame ratio-4x3">
-            <img src="assets/img/ryan-headshot.jpg" alt="Ryan Jan">
+        <div class="home-photo-slot entrance entrance-6">
+          <div class="avatar-wrap">
+            <div class="media-frame ratio-1x1 round">
+              <img src="assets/img/ryan-headshot.jpg" alt="Ryan Jan">
+            </div>
+            <svg class="avatar-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47"></circle></svg>
           </div>
         </div>
       </section>
 
-      <div class="stat-chips reveal">
-        <div class="stat-chip"><strong>Hand-solved</strong>Algebraic Riccati equation for full-state feedback</div>
-        <div class="stat-chip"><strong>PID vs. LQR</strong>Compared head-to-head on the same hardware</div>
-        <div class="stat-chip"><strong>2&times; Control Award</strong>FIRST Tech Challenge, back to back seasons</div>
+      <div class="stat-chips">
+        <div class="stat-chip entrance entrance-7"><strong>Hand-solved</strong>Algebraic Riccati equation for full-state feedback</div>
+        <div class="stat-chip entrance entrance-8"><strong>PID vs. LQR</strong>Compared head-to-head on the same hardware</div>
+        <div class="stat-chip entrance entrance-9"><strong><span class="count" data-target="2">0</span>&times; Control Award</strong>FIRST Tech Challenge, back to back seasons</div>
+        <div class="stat-chip entrance entrance-10"><strong><span class="count" data-target="3000">0</span>+ Lines of Java</strong>Shipped to competition robots</div>
       </div>
 
       <section class="teaser-card reveal">
