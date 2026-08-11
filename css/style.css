@@ -175,6 +175,18 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
   display: block;
 }
 
+.media-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.media-caption {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-faint);
+  margin: 8px 0 0;
+}
+
 /* ---------- shell layout (sidebar + main) ---------- */
 .shell { display: flex; min-height: 100vh; }
 
@@ -463,7 +475,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
   .mobile-panel .sidebar-cta { margin-top: 22px; padding-top: 20px; }
 
   .page { padding: 44px 24px 72px; }
-  .home-hero, .flagship-media-row, .about-row { grid-template-columns: 1fr; }
+  .home-hero, .flagship-media-row, .about-row, .media-row { grid-template-columns: 1fr; }
   .home-photo-slot { max-width: 220px; margin: 0 0 8px; }
   .teaser-card { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
