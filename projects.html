@@ -126,9 +126,14 @@
       <section class="page-block">
         <div class="project-grid">
           <article class="project-media-card reveal">
-            <div class="media-slot ratio-4x3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-4-4 3-3-2-6 5"></path></svg>
-              <span>Add: photo</span>
+            <div class="terminal-frame ratio-4x3">
+              <div class="terminal-titlebar"><span></span><span></span><span></span></div>
+              <pre class="terminal-body"><span class="t-prompt">$</span> make test
+Compiling test/*.c ...
+Assembling + linking (x86-64) ...
+
+<span class="t-ok">362/362 assertions passed</span>
+15 test programs, 0 failures</pre>
             </div>
             <div class="project-media-body">
               <h3>Small C Compiler</h3>
@@ -150,13 +155,15 @@
           </article>
 
           <article class="project-media-card reveal">
-            <div class="media-slot ratio-4x3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-4-4 3-3-2-6 5"></path></svg>
-              <span>Add: photo</span>
+            <div class="media-frame ratio-4x3">
+              <img src="assets/img/ir-regulator-circuit.jpg" alt="The IR-controlled temperature regulator breadboard circuit, wired to an ELEGOO Mega, with the IR remote and cooling fan.">
             </div>
             <div class="project-media-body">
               <h3>IR-Controlled Temp Regulator</h3>
               <p>Steinhart&ndash;Hart thermistor model actuates a fan above a 71&deg;F setpoint via IR remote.</p>
+              <div class="media-frame ratio-16x9" style="margin:12px 0;">
+                <video src="assets/video/ir-regulator-demo.mp4" controls playsinline preload="none"></video>
+              </div>
               <div class="tags"><span>ATmega2560</span><span>Arduino</span></div>
               <a class="text-link" href="https://github.com/rjan939/temperature-regulation-system" target="_blank" rel="noopener">GitHub &rarr;</a>
             </div>

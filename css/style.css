@@ -175,6 +175,38 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
   display: block;
 }
 
+.terminal-frame {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #0a0c0f;
+  display: flex;
+  flex-direction: column;
+}
+.terminal-frame.ratio-4x3 { aspect-ratio: 4 / 3; }
+.terminal-titlebar {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px;
+  background: var(--bg-elevated-2);
+  border-bottom: 1px solid var(--border-soft);
+  flex-shrink: 0;
+}
+.terminal-titlebar span { width: 9px; height: 9px; border-radius: 50%; background: var(--border); }
+.terminal-body {
+  flex: 1;
+  margin: 0;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+}
+.t-prompt { color: var(--accent); }
+.t-ok { color: #6fbf7f; }
+
 .media-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
