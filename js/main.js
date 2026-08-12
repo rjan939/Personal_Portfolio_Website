@@ -53,12 +53,17 @@
       el.textContent = formatCount(target);
       return;
     }
-    var duration = 1200;
+    var duration = 2000;
     var start = null;
     function step(ts) {
       if (start === null) start = ts;
       var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      // ease-in-out cubic -- spreads the visible counting across the whole
+      // duration instead of front-loading it (which made small targets like
+      // "2" look like they'd already finished almost immediately)
+      var eased = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
       el.textContent = formatCount(target * eased);
       if (progress < 1) requestAnimationFrame(step);
     }
