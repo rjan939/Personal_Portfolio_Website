@@ -53,7 +53,7 @@
       el.textContent = formatCount(target);
       return;
     }
-    var duration = 2000;
+    var duration = 3200;
     var start = null;
     function step(ts) {
       if (start === null) start = ts;
