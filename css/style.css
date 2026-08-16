@@ -233,8 +233,11 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
 
 .media-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+@media (max-width: 700px) {
+  .media-row { grid-template-columns: 1fr 1fr; }
 }
 .media-caption {
   font-family: var(--font-mono);
