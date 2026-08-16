@@ -19,6 +19,17 @@
     });
   }
 
+  // drop the will-change hint the moment each one-shot entrance animation
+  // finishes -- it's only useful *during* the animation (promotes the
+  // element to its own GPU layer so the blur doesn't cost main-thread
+  // repaints), and leaving it on afterward just reserves GPU memory
+  // for no reason.
+  document.querySelectorAll(".entrance").forEach(function (el) {
+    el.addEventListener("animationend", function () {
+      el.style.willChange = "auto";
+    }, { once: true });
+  });
+
   // scroll-reveal (elements are marked with class="reveal" directly in HTML)
   var revealTargets = document.querySelectorAll(".reveal");
 

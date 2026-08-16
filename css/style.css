@@ -363,6 +363,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
   filter: blur(6px);
   transform: translateY(10px);
   animation: blur-in 0.7s ease-out forwards;
+  will-change: opacity, filter, transform;
 }
 @keyframes blur-in {
   to { opacity: 1; filter: blur(0); transform: translateY(0); }
@@ -655,6 +656,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
     opacity: 1;
     filter: none;
     transform: none;
+    will-change: auto;
   }
   .reveal {
     transition: none !important;
