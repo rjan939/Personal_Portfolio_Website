@@ -142,7 +142,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
   border-color: var(--accent-line);
 }
-.stat-chip strong { display: block; color: var(--text); font-family: var(--font-serif); font-size: 16px; margin-bottom: 2px; }
+.stat-chip strong { display: block; color: var(--text); font-family: var(--font-serif); font-weight: 500; font-size: 16px; margin-bottom: 2px; }
 
 /* ---------- media slot (placeholder for photos/video) ---------- */
 .media-slot {

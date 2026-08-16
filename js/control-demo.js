@@ -153,6 +153,7 @@
   }
 
   function frame(ts) {
+    if (!running) return;
     if (lastFrame === null) lastFrame = ts;
     var dt = Math.min((ts - lastFrame) / 1000, 0.05);
     lastFrame = ts;
@@ -167,9 +168,38 @@
     requestAnimationFrame(frame);
   }
 
+  // pause the render loop entirely when the widget is scrolled off-screen
+  // or the tab is backgrounded -- no reason to burn CPU/battery animating
+  // something nobody can see, which is exactly what makes a page feel
+  // laggy on lower-end machines.
+  var running = false;
+  var inViewport = false;
+
+  function updateRunning() {
+    var shouldRun = inViewport && !document.hidden;
+    if (shouldRun && !running) {
+      running = true;
+      lastFrame = null;
+      requestAnimationFrame(frame);
+    } else if (!shouldRun && running) {
+      running = false;
+    }
+  }
+
   resize();
   window.addEventListener("resize", resize);
   readSetpoint();
   pos = setpoint;
-  requestAnimationFrame(frame);
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      inViewport = entries[entries.length - 1].isIntersecting;
+      updateRunning();
+    }, { threshold: 0.01 });
+    io.observe(canvas);
+  } else {
+    inViewport = true;
+    updateRunning();
+  }
+  document.addEventListener("visibilitychange", updateRunning);
 })();

@@ -8,7 +8,7 @@
   var LOGICAL_W = 850;
   var LOGICAL_H = 460;
   var TRAIL_SECONDS = 3.2;
-  var SAMPLE_INTERVAL = 0.02;
+  var SAMPLE_INTERVAL = 0.03; // fewer points per frame = fewer stroke() calls, trail still reads as smooth
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -93,6 +93,7 @@
   }
 
   function frame(ts) {
+    if (!running) return;
     if (lastFrame === null) lastFrame = ts;
     var dt = Math.min((ts - lastFrame) / 1000, 0.05);
     lastFrame = ts;
@@ -109,6 +110,23 @@
     requestAnimationFrame(frame);
   }
 
+  // pause entirely when scrolled off-screen or the tab is backgrounded --
+  // this is decorative, so there's no reason to keep animating it (and
+  // burning CPU/battery) when nobody can actually see it.
+  var running = false;
+  var inViewport = false;
+
+  function updateRunning() {
+    var shouldRun = inViewport && !document.hidden;
+    if (shouldRun && !running) {
+      running = true;
+      lastFrame = null;
+      requestAnimationFrame(frame);
+    } else if (!shouldRun && running) {
+      running = false;
+    }
+  }
+
   resize();
   window.addEventListener("resize", resize);
 
@@ -116,6 +134,13 @@
     for (var t = 0; t < TRAIL_SECONDS; t += SAMPLE_INTERVAL) points.push(sample(t));
     elapsed = TRAIL_SECONDS;
     draw();
+  } else if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      inViewport = entries[entries.length - 1].isIntersecting;
+      updateRunning();
+    }, { threshold: 0.01 });
+    io.observe(canvas);
+    document.addEventListener("visibilitychange", updateRunning);
   } else {
     requestAnimationFrame(frame);
   }
