@@ -589,13 +589,16 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
   .shell { flex-direction: column; }
   .sidebar { display: none; }
 
+  .mobile-nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
   .mobile-topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
     background: rgba(14, 16, 19, 0.92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-soft);
