@@ -1,10 +1,10 @@
 # Ryan Jan — Portfolio
 
-Static site, no build step, no dependencies. Plain HTML/CSS/JS.
+Static site and Plain HTML/CSS/JS.
 
 ## Preview locally
 
-Just open `index.html` in a browser — no server required. If you prefer a local
+Just open `index.html` in a browser, no server required. If you prefer a local
 server (e.g. for testing relative-path edge cases), any static server works:
 
 ```bash
