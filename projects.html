@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Ryan Jan</title>
-<meta name="description" content="Selected controls and embedded systems projects by Ryan Jan, including a self-balancing robot with PID/LQR control.">
+<meta name="description" content="Selected controls, embedded systems, and avionics design projects by Ryan Jan, including a self-balancing robot and a preliminary cryocooler control architecture.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,8 +115,8 @@
 
         <ul class="flagship-lines reveal">
           <li>Modeled as an inverted pendulum on a custom 3D-printed chassis</li>
-          <li>PID and a hand-derived 4-state LQR compared on identical hardware</li>
-          <li>Full-state feedback gains from solving the algebraic Riccati equation in Java</li>
+          <li>PID and a 4-state LQR implementation compared on identical hardware</li>
+          <li>Full-state feedback gains implemented in Java using external LQR references</li>
           <li>IMU + encoder sensor fusion, evaluated live over FTC Dashboard telemetry</li>
         </ul>
         <div class="tags">
@@ -126,6 +126,18 @@
       </section>
 
       <section class="page-block">
+        <article class="project-spotlight reveal">
+          <div class="project-architecture" aria-label="Preliminary cryocooler control architecture">
+            <span>28 V BUS</span><i></i><span>POWER</span><i></i><span>CONTROL</span><i></i><span>SENSING</span>
+          </div>
+          <div class="project-spotlight-body">
+            <p class="eyebrow">Preliminary Architecture</p>
+            <h2>Autonomous Cryocooler Control Unit</h2>
+            <p>Designed a preliminary spacecraft cryocooler control architecture for a 28 V CubeSat power bus, integrating STM32-based control, CAN communication, four-wire RTD temperature sensing, current and voltage monitoring, fault isolation, and a Simulink thermal-control model.</p>
+            <div class="tags"><span>STM32</span><span>CAN</span><span>SPI</span><span>Altium Designer</span><span>Simulink</span><span>PI/PID Control</span><span>RTD Sensing</span><span>Power Electronics</span></div>
+          </div>
+        </article>
+
         <div class="project-grid">
           <article class="project-media-card reveal">
             <div class="terminal-frame ratio-4x3">

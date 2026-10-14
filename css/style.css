@@ -454,6 +454,38 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
 .project-media-body p { color: var(--text-muted); font-size: 13.5px; margin: 0; }
 .project-media-body .tags { margin-top: 12px; }
 
+.project-spotlight {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 32px;
+  align-items: center;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 28px;
+}
+.project-architecture {
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 22px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+.project-architecture i { display: block; width: 1px; height: 14px; margin-left: 14px; background: var(--accent); }
+.project-architecture span { border: 1px solid var(--accent-line); border-radius: 4px; padding: 5px 9px; color: var(--accent); }
+.project-spotlight-body h2 { font-size: 24px; margin-bottom: 8px; }
+.project-spotlight-body > p:not(.eyebrow) { margin: 0; color: var(--text-muted); font-size: 14.5px; }
+
 .earlier-builds { margin-top: 48px; }
 .earlier-title {
   font-family: var(--font-mono);
@@ -490,6 +522,8 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
 .exp-body ul { display: flex; flex-direction: column; gap: 9px; }
 .exp-body li { color: var(--text-muted); font-size: 13.5px; padding-left: 16px; position: relative; }
 .exp-body li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 1.5px; background: var(--accent); }
+.experience-list { display: flex; flex-direction: column; gap: 38px; }
+.experience-media { margin: -10px 0 0; }
 
 /* ---------- footer ---------- */
 .page-footer {
@@ -555,7 +589,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
   .mobile-panel .sidebar-cta { margin-top: 22px; padding-top: 20px; }
 
   .page { padding: 44px 24px 72px; }
-  .home-hero, .flagship-media-row, .about-row, .media-row { grid-template-columns: 1fr; }
+  .home-hero, .flagship-media-row, .about-row, .media-row, .project-spotlight { grid-template-columns: 1fr; }
   .home-photo-slot { max-width: 220px; margin: 0 0 8px; }
   .teaser-card { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
