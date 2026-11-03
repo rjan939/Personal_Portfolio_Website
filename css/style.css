@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
 /* ---------- design tokens ---------- */
 :root {
   --bg: #0e1013;
@@ -15,8 +17,8 @@
   --accent-line: rgba(224, 164, 88, 0.35);
   --response: #6fb3c9;
 
-  --font-serif: "Newsreader", Georgia, serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Open Sans", sans-serif;
+  --font-sans: "Open Sans", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
 
   --sidebar-w: 272px;
@@ -128,6 +130,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-serif); font-weight: 500; }
   gap: 12px;
   margin: 28px 0;
 }
+
 .stat-chip {
   border: 1px solid var(--border);
   background: var(--bg-elevated);
