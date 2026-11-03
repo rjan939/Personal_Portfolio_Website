@@ -93,8 +93,22 @@
   function draw() {
     ctx.clearRect(0, 0, LOGICAL_W, LOGICAL_H);
 
+    const styles = getComputedStyle(document.documentElement);
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+
+    const gridColor = isDark
+      ? "rgba(241, 237, 226, 0.08)"
+        : "rgba(40, 58, 50, 0.08)";
+
+    const centerColor = isDark
+      ? "rgba(241, 237, 226, 0.18)"
+      : "rgba(40, 58, 50, 0.18)";
+
+    const setpointColor = styles.getPropertyValue("--response").trim();
+    const responseColor = styles.getPropertyValue("--accent").trim();
+
     // grid
-    ctx.strokeStyle = "rgba(255,255,255,0.06)";
+    ctx.strokeStyle = ctx.strokeStyle = gridColor;
     ctx.lineWidth = 1;
     for (var gx = 0; gx <= LOGICAL_W; gx += LOGICAL_W / 8) {
       ctx.beginPath();
@@ -110,7 +124,7 @@
     }
 
     // center line
-    ctx.strokeStyle = "rgba(255,255,255,0.12)";
+    ctx.strokeStyle = ctx.strokeStyle = centerColor;
     ctx.beginPath();
     ctx.moveTo(0, valueToY(0));
     ctx.lineTo(LOGICAL_W, valueToY(0));
@@ -119,7 +133,7 @@
     if (history.length < 2) return;
 
     // setpoint trace (dashed)
-    ctx.strokeStyle = "#6fb3c9";
+    ctx.strokeStyle = ctx.strokeStyle = setpointColor;
     ctx.lineWidth = 1.75;
     ctx.setLineDash([5, 4]);
     ctx.beginPath();
@@ -133,7 +147,7 @@
     ctx.setLineDash([]);
 
     // response trace (solid)
-    ctx.strokeStyle = "#e0a458";
+    ctx.strokeStyle = ctx.strokeStyle = responseColor;
     ctx.lineWidth = 2.25;
     ctx.beginPath();
     for (var j = 0; j < history.length; j++) {
@@ -146,7 +160,7 @@
 
     // leading marker
     var last = history[history.length - 1];
-    ctx.fillStyle = "#e0a458";
+    ctx.fillStyle = ctx.fillStyle = responseColor;
     ctx.beginPath();
     ctx.arc(timeToX(last.t), valueToY(last.pos), 3.5, 0, Math.PI * 2);
     ctx.fill();
